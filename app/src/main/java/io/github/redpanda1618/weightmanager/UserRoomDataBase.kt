@@ -1,15 +1,18 @@
 package io.github.redpanda1618.weightmanager
 
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UserRoomDataBase : RoomDatabase {
+abstract class UserRoomDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
-        private var INSTANCE: UserRoomDataBase? = null
-        fun getDatabase(context: Context): UserRoomDataBase {
+        private var INSTANCE: UserRoomDatabase? = null
+        fun getDatabase(context: Context): UserRoomDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
@@ -22,6 +25,5 @@ abstract class UserRoomDataBase : RoomDatabase {
                 return instance
             }
         }
-
     }
 }

@@ -1,5 +1,10 @@
 package io.github.redpanda1618.weightmanager
 
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+
 @Dao
 interface UserDao {
     @Insert

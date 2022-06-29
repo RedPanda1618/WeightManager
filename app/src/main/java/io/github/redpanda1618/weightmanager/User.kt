@@ -1,5 +1,9 @@
 package io.github.redpanda1618.weightmanager
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 @Entity(tableName = "user_table")
 data class User(
     @PrimaryKey(autoGenerate = true)
