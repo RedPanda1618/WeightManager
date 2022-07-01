@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-28:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-29:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
                     "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\5ecf78887d09c8d5772bfd0d13860753\\transformed\\material-1.6.1\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",

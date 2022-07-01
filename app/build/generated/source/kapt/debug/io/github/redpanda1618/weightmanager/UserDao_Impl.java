@@ -7,16 +7,19 @@ import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.RxRoom;
 import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
+import io.reactivex.Flowable;
 import java.lang.Class;
 import java.lang.Exception;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -125,6 +128,53 @@ public final class UserDao_Impl implements UserDao {
         }
       }
     }, continuation);
+  }
+
+  @Override
+  public Flowable<List<User>> getAll() {
+    final String _sql = "SELECT * FROM user_table";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return RxRoom.createFlowable(__db, false, new String[]{"user_table"}, new Callable<List<User>>() {
+      @Override
+      public List<User> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfAge = CursorUtil.getColumnIndexOrThrow(_cursor, "weight");
+          final int _cursorIndexOfMuscleRate = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle_rate");
+          final int _cursorIndexOfFatRate = CursorUtil.getColumnIndexOrThrow(_cursor, "fat_rate");
+          final List<User> _result = new ArrayList<User>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final User _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpName;
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
+            final float _tmpAge;
+            _tmpAge = _cursor.getFloat(_cursorIndexOfAge);
+            final float _tmpMuscle_rate;
+            _tmpMuscle_rate = _cursor.getFloat(_cursorIndexOfMuscleRate);
+            final float _tmpFat_rate;
+            _tmpFat_rate = _cursor.getFloat(_cursorIndexOfFatRate);
+            _item = new User(_tmpId,_tmpName,_tmpAge,_tmpMuscle_rate,_tmpFat_rate);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   @Override

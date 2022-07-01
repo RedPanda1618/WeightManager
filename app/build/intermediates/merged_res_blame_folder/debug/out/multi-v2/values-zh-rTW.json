@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-28:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-29:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\8d94b2d4c968cccf93c023125f36ce07\\transformed\\core-1.8.0\\res\\values-zh-rTW\\values-zh-rTW.xml",

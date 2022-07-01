@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-28:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-29:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\b337e567a97552d20c2e1a823a166141\\transformed\\appcompat-1.4.2\\res\\values-watch-v21\\values-watch-v21.xml",
