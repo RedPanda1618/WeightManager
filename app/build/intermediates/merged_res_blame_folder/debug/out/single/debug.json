@@ -48,6 +48,10 @@
         "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
+        "merged": "io.github.redpanda1618.weightmanager.app-merged_res-31:/drawable_button_circle.xml.flat",
+        "source": "io.github.redpanda1618.weightmanager.app-main-33:/drawable/button_circle.xml"
+    },
+    {
         "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-pngs-26:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },

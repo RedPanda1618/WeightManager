@@ -10,8 +10,10 @@ color teal_200
 color teal_700
 color white
 color white2
+drawable button_circle
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id button2
 id chartFut
 id chartMuscle
 id chartWeight
