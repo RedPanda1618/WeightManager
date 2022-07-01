@@ -10,14 +10,14 @@ data class User(
     val id: Long = 0L,
 
     @ColumnInfo(name = "date")
-    val name: String,
+    val date: Long,
 
     @ColumnInfo(name = "weight")
     val age: Float,
 
-    @ColumnInfo(name = "muscle_rate")
-    val muscle_rate: Float,
+    @ColumnInfo(name = "muscle")
+    val muscle: Float,
 
-    @ColumnInfo(name = "fat_rate")
-    val fat_rate: Float
+    @ColumnInfo(name = "fat")
+    val fat: Float
     )

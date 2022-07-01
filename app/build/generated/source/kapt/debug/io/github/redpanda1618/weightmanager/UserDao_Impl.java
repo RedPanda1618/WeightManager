@@ -7,14 +7,14 @@ import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
-import androidx.room.RxRoom;
 import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
-import io.reactivex.Flowable;
 import java.lang.Class;
 import java.lang.Exception;
+import java.lang.Float;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -41,20 +41,16 @@ public final class UserDao_Impl implements UserDao {
     this.__insertionAdapterOfUser = new EntityInsertionAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `user_table` (`id`,`date`,`weight`,`muscle_rate`,`fat_rate`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `user_table` (`id`,`date`,`weight`,`muscle`,`fat`) VALUES (nullif(?, 0),?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, User value) {
         stmt.bindLong(1, value.getId());
-        if (value.getName() == null) {
-          stmt.bindNull(2);
-        } else {
-          stmt.bindString(2, value.getName());
-        }
+        stmt.bindLong(2, value.getDate());
         stmt.bindDouble(3, value.getAge());
-        stmt.bindDouble(4, value.getMuscle_rate());
-        stmt.bindDouble(5, value.getFat_rate());
+        stmt.bindDouble(4, value.getMuscle());
+        stmt.bindDouble(5, value.getFat());
       }
     };
     this.__deletionAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
@@ -131,50 +127,43 @@ public final class UserDao_Impl implements UserDao {
   }
 
   @Override
-  public Flowable<List<User>> getAll() {
+  public Object getAll(final Continuation<? super List<User>> continuation) {
     final String _sql = "SELECT * FROM user_table";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    return RxRoom.createFlowable(__db, false, new String[]{"user_table"}, new Callable<List<User>>() {
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<User>>() {
       @Override
       public List<User> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
           final int _cursorIndexOfAge = CursorUtil.getColumnIndexOrThrow(_cursor, "weight");
-          final int _cursorIndexOfMuscleRate = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle_rate");
-          final int _cursorIndexOfFatRate = CursorUtil.getColumnIndexOrThrow(_cursor, "fat_rate");
+          final int _cursorIndexOfMuscle = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle");
+          final int _cursorIndexOfFat = CursorUtil.getColumnIndexOrThrow(_cursor, "fat");
           final List<User> _result = new ArrayList<User>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final User _item;
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
-            final String _tmpName;
-            if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
-            } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
-            }
+            final long _tmpDate;
+            _tmpDate = _cursor.getLong(_cursorIndexOfDate);
             final float _tmpAge;
             _tmpAge = _cursor.getFloat(_cursorIndexOfAge);
-            final float _tmpMuscle_rate;
-            _tmpMuscle_rate = _cursor.getFloat(_cursorIndexOfMuscleRate);
-            final float _tmpFat_rate;
-            _tmpFat_rate = _cursor.getFloat(_cursorIndexOfFatRate);
-            _item = new User(_tmpId,_tmpName,_tmpAge,_tmpMuscle_rate,_tmpFat_rate);
+            final float _tmpMuscle;
+            _tmpMuscle = _cursor.getFloat(_cursorIndexOfMuscle);
+            final float _tmpFat;
+            _tmpFat = _cursor.getFloat(_cursorIndexOfFat);
+            _item = new User(_tmpId,_tmpDate,_tmpAge,_tmpMuscle,_tmpFat);
             _result.add(_item);
           }
           return _result;
         } finally {
           _cursor.close();
+          _statement.release();
         }
       }
-
-      @Override
-      protected void finalize() {
-        _statement.release();
-      }
-    });
+    }, continuation);
   }
 
   @Override
@@ -190,27 +179,23 @@ public final class UserDao_Impl implements UserDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
           final int _cursorIndexOfAge = CursorUtil.getColumnIndexOrThrow(_cursor, "weight");
-          final int _cursorIndexOfMuscleRate = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle_rate");
-          final int _cursorIndexOfFatRate = CursorUtil.getColumnIndexOrThrow(_cursor, "fat_rate");
+          final int _cursorIndexOfMuscle = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle");
+          final int _cursorIndexOfFat = CursorUtil.getColumnIndexOrThrow(_cursor, "fat");
           final User _result;
           if(_cursor.moveToFirst()) {
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
-            final String _tmpName;
-            if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
-            } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
-            }
+            final long _tmpDate;
+            _tmpDate = _cursor.getLong(_cursorIndexOfDate);
             final float _tmpAge;
             _tmpAge = _cursor.getFloat(_cursorIndexOfAge);
-            final float _tmpMuscle_rate;
-            _tmpMuscle_rate = _cursor.getFloat(_cursorIndexOfMuscleRate);
-            final float _tmpFat_rate;
-            _tmpFat_rate = _cursor.getFloat(_cursorIndexOfFatRate);
-            _result = new User(_tmpId,_tmpName,_tmpAge,_tmpMuscle_rate,_tmpFat_rate);
+            final float _tmpMuscle;
+            _tmpMuscle = _cursor.getFloat(_cursorIndexOfMuscle);
+            final float _tmpFat;
+            _tmpFat = _cursor.getFloat(_cursorIndexOfFat);
+            _result = new User(_tmpId,_tmpDate,_tmpAge,_tmpMuscle,_tmpFat);
           } else {
             _result = null;
           }
@@ -221,6 +206,150 @@ public final class UserDao_Impl implements UserDao {
         }
       }
     }, continuation);
+  }
+
+  @Override
+  public Object getWeight(final int size, final Continuation<? super List<Float>> continuation) {
+    final String _sql = "SELECT weight FROM user_table LIMIT ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, size);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Float>>() {
+      @Override
+      public List<Float> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<Float> _result = new ArrayList<Float>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Float _item;
+            if (_cursor.isNull(0)) {
+              _item = null;
+            } else {
+              _item = _cursor.getFloat(0);
+            }
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public Object getMuscle(final int size, final Continuation<? super List<Float>> continuation) {
+    final String _sql = "SELECT muscle FROM user_table LIMIT ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, size);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Float>>() {
+      @Override
+      public List<Float> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<Float> _result = new ArrayList<Float>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Float _item;
+            if (_cursor.isNull(0)) {
+              _item = null;
+            } else {
+              _item = _cursor.getFloat(0);
+            }
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public Object getFat(final int size, final Continuation<? super List<Float>> continuation) {
+    final String _sql = "SELECT fat FROM user_table LIMIT ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, size);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Float>>() {
+      @Override
+      public List<Float> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<Float> _result = new ArrayList<Float>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Float _item;
+            if (_cursor.isNull(0)) {
+              _item = null;
+            } else {
+              _item = _cursor.getFloat(0);
+            }
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public Object getDate(final int size, final Continuation<? super List<Long>> continuation) {
+    final String _sql = "SELECT date FROM user_table LIMIT ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, size);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Long>>() {
+      @Override
+      public List<Long> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<Long> _result = new ArrayList<Long>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Long _item;
+            if (_cursor.isNull(0)) {
+              _item = null;
+            } else {
+              _item = _cursor.getLong(0);
+            }
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public int getSize() {
+    final String _sql = "SELECT COUNT(*) FROM user_table";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _result;
+      if(_cursor.moveToFirst()) {
+        _result = _cursor.getInt(0);
+      } else {
+        _result = 0;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
   }
 
   public static List<Class<?>> getRequiredConverters() {

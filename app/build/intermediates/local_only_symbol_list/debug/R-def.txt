@@ -1,20 +1,21 @@
 R_DEF: Internal format may change without notice
 local
+color basic_black
 color black
-color black2
-color dark_green
+color dark_blue_gray
 color purple_200
 color purple_500
 color purple_700
+color rose_brown
 color teal_200
 color teal_700
 color white
-color white2
 drawable button_circle
+drawable ic_baseline_add_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-id button2
-id chartFut
+id button_add
+id chartFat
 id chartMuscle
 id chartWeight
 id linearLayout
