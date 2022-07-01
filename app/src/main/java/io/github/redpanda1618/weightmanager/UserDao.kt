@@ -4,9 +4,13 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import io.reactivex.Flowable
 
 @Dao
 interface UserDao {
+    @Query("SELECT * FROM user_table")
+    fun getAll(): Flowable<List<User>>
+
     @Insert
     suspend fun insert(user: User)
 
@@ -18,4 +22,6 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table WHERE id = :key")
     suspend fun get(key: Long): User?
+
+
 }
