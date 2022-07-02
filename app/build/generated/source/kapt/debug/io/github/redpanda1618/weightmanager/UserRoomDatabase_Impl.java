@@ -37,9 +37,9 @@ public final class UserRoomDatabase_Impl extends UserRoomDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER NOT NULL, `weight` REAL NOT NULL, `muscle` REAL NOT NULL, `fat` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `weight` REAL NOT NULL, `muscle` REAL NOT NULL, `fat` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5fdb73eb7654b9b93d18676ac537b4fc')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ddbbd8e5c45802b0850e10d2426b5e84')");
       }
 
       @Override
@@ -85,7 +85,7 @@ public final class UserRoomDatabase_Impl extends UserRoomDatabase {
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
         final HashMap<String, TableInfo.Column> _columnsUserTable = new HashMap<String, TableInfo.Column>(5);
         _columnsUserTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsUserTable.put("date", new TableInfo.Column("date", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserTable.put("date", new TableInfo.Column("date", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserTable.put("weight", new TableInfo.Column("weight", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserTable.put("muscle", new TableInfo.Column("muscle", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserTable.put("fat", new TableInfo.Column("fat", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -100,7 +100,7 @@ public final class UserRoomDatabase_Impl extends UserRoomDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "5fdb73eb7654b9b93d18676ac537b4fc", "3240e41c74bc89093a0d49116389c58a");
+    }, "ddbbd8e5c45802b0850e10d2426b5e84", "6cd3593a1b3e4c46c266856efbcf99bf");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

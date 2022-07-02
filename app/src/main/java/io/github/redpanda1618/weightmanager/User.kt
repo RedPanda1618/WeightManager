@@ -10,7 +10,7 @@ data class User(
     val id: Long = 0L,
 
     @ColumnInfo(name = "date")
-    val date: Long,
+    val date: String,
 
     @ColumnInfo(name = "weight")
     val age: Float,

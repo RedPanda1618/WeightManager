@@ -11,11 +11,11 @@
 9-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:6:5-25:19
+11-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:6:5-28:19
 12        android:allowBackup="true"
 12-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:7:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.8.0] C:\Users\shump\.gradle\caches\transforms-3\8d94b2d4c968cccf93c023125f36ce07\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.8.0] C:\Users\shump\.gradle\caches\transforms-3\8a9e634b9fa2342236d9d40ba886a153\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
 14        android:dataExtractionRules="@xml/data_extraction_rules"
 14-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:8:9-65
 15        android:debuggable="true"
@@ -30,57 +30,60 @@
 20-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:12:9-54
 21        android:supportsRtl="true"
 21-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:13:9-35
-22        android:testOnly="true"
-23        android:theme="@style/Theme.WeightManager" >
-23-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:14:9-51
-24        <activity
-24-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:16:9-24:20
-25            android:name="io.github.redpanda1618.weightmanager.MainActivity"
-25-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:17:13-41
-26            android:exported="true" >
-26-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:18:13-36
-27            <intent-filter>
-27-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:19:13-23:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:20:17-69
-28-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:20:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:22:17-77
-30-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:22:27-74
-31            </intent-filter>
-32        </activity>
-33
-34        <service
-34-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\9592e3204eb86ae6be7e62ba117a4a98\transformed\room-runtime-2.4.2\AndroidManifest.xml:25:9-28:40
-35            android:name="androidx.room.MultiInstanceInvalidationService"
-35-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\9592e3204eb86ae6be7e62ba117a4a98\transformed\room-runtime-2.4.2\AndroidManifest.xml:26:13-74
-36            android:directBootAware="true"
-36-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\9592e3204eb86ae6be7e62ba117a4a98\transformed\room-runtime-2.4.2\AndroidManifest.xml:27:13-43
-37            android:exported="false" />
-37-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\9592e3204eb86ae6be7e62ba117a4a98\transformed\room-runtime-2.4.2\AndroidManifest.xml:28:13-37
-38
-39        <provider
-39-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-40            android:name="androidx.startup.InitializationProvider"
-40-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
-41            android:authorities="io.github.redpanda1618.weightmanager.androidx-startup"
-41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
-42            android:exported="false" >
-42-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
-43            <meta-data
-43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-44                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
-45                android:value="androidx.startup" />
-45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\734f58e2c86c6d5146967ec2afef1295\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
-46            <meta-data
-46-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\6678309a7758632c841a28fcb65493d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-47                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-47-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\6678309a7758632c841a28fcb65493d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-48                android:value="androidx.startup" />
-48-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\6678309a7758632c841a28fcb65493d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-49        </provider>
-50    </application>
-51
-52</manifest>
+22        android:theme="@style/Theme.WeightManager" >
+22-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:14:9-51
+23        <activity android:name="io.github.redpanda1618.weightmanager.AddDataActivity" >
+23-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:16:9-18:20
+23-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:17:13-44
+24        </activity>
+25        <activity
+25-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:19:9-27:20
+26            android:name="io.github.redpanda1618.weightmanager.MainActivity"
+26-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:20:13-41
+27            android:exported="true" >
+27-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:21:13-36
+28            <intent-filter>
+28-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:22:13-26:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:23:17-69
+29-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:23:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:25:17-77
+31-->C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:25:27-74
+32            </intent-filter>
+33        </activity>
+34
+35        <service
+35-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\a105872088e49f3c54a6c508aa980d73\transformed\room-runtime-2.4.2\AndroidManifest.xml:25:9-28:40
+36            android:name="androidx.room.MultiInstanceInvalidationService"
+36-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\a105872088e49f3c54a6c508aa980d73\transformed\room-runtime-2.4.2\AndroidManifest.xml:26:13-74
+37            android:directBootAware="true"
+37-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\a105872088e49f3c54a6c508aa980d73\transformed\room-runtime-2.4.2\AndroidManifest.xml:27:13-43
+38            android:exported="false" />
+38-->[androidx.room:room-runtime:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\a105872088e49f3c54a6c508aa980d73\transformed\room-runtime-2.4.2\AndroidManifest.xml:28:13-37
+39
+40        <provider
+40-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+41            android:name="androidx.startup.InitializationProvider"
+41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+42            android:authorities="io.github.redpanda1618.weightmanager.androidx-startup"
+42-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+43            android:exported="false" >
+43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+44            <meta-data
+44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+45                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+46                android:value="androidx.startup" />
+46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\ad21252005288b43dc5c6615d0194529\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+47            <meta-data
+47-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\05573bc09cc21b73f2cf6ad8a876b023\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+48                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+48-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\05573bc09cc21b73f2cf6ad8a876b023\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+49                android:value="androidx.startup" />
+49-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\shump\.gradle\caches\transforms-3\05573bc09cc21b73f2cf6ad8a876b023\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+50        </provider>
+51    </application>
+52
+53</manifest>

@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/drawable/border.xml" value="0.1525" />
         <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/drawable/button_circle.xml" value="0.1525" />
+        <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/drawable/button_squere.xml" value="0.1965" />
         <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.22" />
+        <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/drawable/shape_rounded_corners_10dp.xml" value="0.1965" />
         <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/layout-v26/activity_main.xml" value="0.20263424518743667" />
+        <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/layout/activity_add_data.xml" value="0.33" />
         <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/shump/AndroidStudioProjects/WeightManager/app/src/main/res/layout/circle_buuton.xml" value="0.19579533941236069" />
         <entry key="..\:/Users/shump/AndroidStutdioProjects/WeightManager/app/src/main/res/layout/activity_main.xml" value="0.37771739130434784" />

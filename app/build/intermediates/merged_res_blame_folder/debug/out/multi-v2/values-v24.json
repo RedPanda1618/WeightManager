@@ -4,17 +4,7 @@
             "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-29:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\b337e567a97552d20c2e1a823a166141\\transformed\\appcompat-1.4.2\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\5ecf78887d09c8d5772bfd0d13860753\\transformed\\material-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\e94337de3ceb42b0135be1d8a4a9b7db\\transformed\\material-1.6.1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,6 +20,16 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\8a39463ca7a3527efd979299126c223b\\transformed\\appcompat-1.4.2\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]

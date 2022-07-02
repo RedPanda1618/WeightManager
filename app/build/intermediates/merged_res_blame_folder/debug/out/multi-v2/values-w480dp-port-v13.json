@@ -4,7 +4,7 @@
             "outputFile": "io.github.redpanda1618.weightmanager.app-mergeDebugResources-29:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\5ecf78887d09c8d5772bfd0d13860753\\transformed\\material-1.6.1\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+                    "source": "C:\\Users\\shump\\.gradle\\caches\\transforms-3\\e94337de3ceb42b0135be1d8a4a9b7db\\transformed\\material-1.6.1\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

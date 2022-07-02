@@ -2447,6 +2447,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2514,6 +2515,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape_rounded_corners_10dp
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2616,6 +2618,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id button
 id buttonPanel
 id button_add
 id cache_measures
@@ -2698,6 +2701,9 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editTextNumberDecimalFat
+id editTextNumberDecimalMuscle
+id editTextNumberDecimalWeight
 id edit_query
 id edittext_dropdown_editable
 id edittext_dropdown_noneditable
@@ -2960,6 +2966,13 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView5
+id textView6
+id textView7
+id textViewFat
+id textViewMuscle
+id textViewTitle
+id textViewWeight
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3100,6 +3113,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_data
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

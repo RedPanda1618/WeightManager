@@ -1,8 +1,10 @@
 package io.github.redpanda1618.weightmanager
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Size
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -16,9 +18,6 @@ import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity(){
     companion object {
-        lateinit var editTextName: EditText
-        lateinit var buttonUpdate: Button
-        lateinit var listViewNames: ListView
         lateinit var db : UserRoomDatabase
         lateinit var dao : UserDao
     }
@@ -31,18 +30,25 @@ class MainActivity : AppCompatActivity(){
         //DB関連のインスタンス取得
         db = UserRoomDatabase.getDatabase(this)
         dao = db.userDao()
+
         val size = 10
         runBlocking {
             showData(size)
         }
     }
+    // 追加ボタン押下時
+    fun addData(view: View) {
+        val intent: Intent = Intent(this@MainActivity,
+            AddDataActivity::class.java)
+        startActivity(intent)
+    }
 
     private suspend fun showData(size: Int) {
 
-        val weight = dao.getWeight(size)
-        val muscle = dao.getMuscle(size)
-        val fat = dao.getFat(size)
-        val date = dao.getDate(size)
+        val weight: List<Float> = dao.getWeight(size) ?: listOf(0.toFloat())
+        val muscle: List<Float> = dao.getMuscle(size) ?: listOf(0.toFloat())
+        val fat: List<Float> = dao.getFat(size) ?: listOf(0.toFloat())
+//        val date: List<String> = dao.getDate(size) ?: listOf("")
 
         val entriesWeight = ArrayList<Entry>()
         val entriesMuscle = ArrayList<Entry>()
