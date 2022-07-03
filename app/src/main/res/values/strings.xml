@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeightManager</string>
+    <string name="add_data">addData</string>
 </resources>

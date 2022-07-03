@@ -9,9 +9,6 @@ import androidx.sqlite.db.SupportSQLiteStatement;
 import io.reactivex.Completable;
 import java.lang.Class;
 import java.lang.Exception;
-import java.lang.Float;
-import java.lang.Integer;
-import java.lang.Long;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -45,7 +42,7 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(2, value.getDate());
         }
-        stmt.bindDouble(3, value.getAge());
+        stmt.bindDouble(3, value.getWeight());
         stmt.bindDouble(4, value.getMuscle());
         stmt.bindDouble(5, value.getFat());
       }
@@ -62,8 +59,8 @@ public final class UserDao_Impl implements UserDao {
   }
 
   @Override
-  public Object getWeight(final int size, final Continuation<? super List<Float>> continuation) {
-    final String _sql = "SELECT weight FROM user_table LIMIT ?";
+  public Object get(final int size, final Continuation<? super List<User>> continuation) {
+    final String _sql = "SELECT * FROM user_table LIMIT ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     _statement.bindLong(_argIndex, size);
@@ -73,95 +70,6 @@ public final class UserDao_Impl implements UserDao {
       final Object _result;
       if(_cursor.moveToFirst()) {
         _result = new Object();
-      } else {
-        _result = null;
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
-  }
-
-  @Override
-  public Object getMuscle(final int size, final Continuation<? super List<Float>> continuation) {
-    final String _sql = "SELECT muscle FROM user_table LIMIT ?";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
-    int _argIndex = 1;
-    _statement.bindLong(_argIndex, size);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final Object _result;
-      if(_cursor.moveToFirst()) {
-        _result = new Object();
-      } else {
-        _result = null;
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
-  }
-
-  @Override
-  public Object getFat(final int size, final Continuation<? super List<Float>> continuation) {
-    final String _sql = "SELECT fat FROM user_table LIMIT ?";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
-    int _argIndex = 1;
-    _statement.bindLong(_argIndex, size);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final Object _result;
-      if(_cursor.moveToFirst()) {
-        _result = new Object();
-      } else {
-        _result = null;
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
-  }
-
-  @Override
-  public Object getDate(final int size, final Continuation<? super List<Long>> continuation) {
-    final String _sql = "SELECT date FROM user_table LIMIT ?";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
-    int _argIndex = 1;
-    _statement.bindLong(_argIndex, size);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final Object _result;
-      if(_cursor.moveToFirst()) {
-        _result = new Object();
-      } else {
-        _result = null;
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
-  }
-
-  @Override
-  public Object getSize(final Continuation<? super Integer> continuation) {
-    final String _sql = "SELECT COUNT(*) FROM user_table";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    int _argIndex = 1;
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final Object _result;
-      if(_cursor.moveToFirst()) {
-        final int _tmp;
-        _tmp = _cursor.getInt(0);
-        _result = _tmp != 0;
       } else {
         _result = null;
       }

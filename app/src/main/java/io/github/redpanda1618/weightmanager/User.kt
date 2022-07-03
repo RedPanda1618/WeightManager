@@ -13,7 +13,7 @@ data class User(
     val date: String,
 
     @ColumnInfo(name = "weight")
-    val age: Float,
+    val weight: Float,
 
     @ColumnInfo(name = "muscle")
     val muscle: Float,

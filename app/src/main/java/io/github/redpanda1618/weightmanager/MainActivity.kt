@@ -13,7 +13,9 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import kotlinx.coroutines.runBlocking
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.*
 
 
 class MainActivity : AppCompatActivity(){
@@ -32,9 +34,7 @@ class MainActivity : AppCompatActivity(){
         dao = db.userDao()
 
         val size = 10
-        runBlocking {
-            showData(size)
-        }
+        showData(size)
     }
     // 追加ボタン押下時
     fun addData(view: View) {
@@ -43,20 +43,30 @@ class MainActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
-    private suspend fun showData(size: Int) {
+    private fun showData(size: Int) = runBlocking {
 
-        val weight: List<Float> = dao.getWeight(size) ?: listOf(0.toFloat())
-        val muscle: List<Float> = dao.getMuscle(size) ?: listOf(0.toFloat())
-        val fat: List<Float> = dao.getFat(size) ?: listOf(0.toFloat())
+//        val weight: List<Float> = dao.getWeight(size) ?: listOf(0.toFloat())
+//        val muscle: List<Float> = dao.getMuscle(size) ?: listOf(0.toFloat())
+//        val fat: List<Float> = dao.getFat(size) ?: listOf(0.toFloat())
 //        val date: List<String> = dao.getDate(size) ?: listOf("")
 
+//            val data: List<User> = dao.get(size) ?: listOf(User(0, "", 0.toFloat(), 0.toFloat(), 0.toFloat()))
+
+        val data = ArrayList<User>()
+        dao.get(size)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                //データ取得完了時の処理
+                it.forEach { user -> data.add(user) }
+            }
         val entriesWeight = ArrayList<Entry>()
         val entriesMuscle = ArrayList<Entry>()
         val entriesFat = ArrayList<Entry>()
-        for(i in weight.indices){
-            entriesWeight.add(Entry(i.toFloat(), weight[i]))
-            entriesMuscle.add(Entry(i.toFloat(), muscle[i]))
-            entriesFat.add(Entry(i.toFloat(), fat[i]))
+        for(i in 0..data.size){
+            entriesWeight.add(Entry(i.toFloat(), data[i].weight))
+            entriesMuscle.add(Entry(i.toFloat(), data[i].muscle))
+            entriesFat.add(Entry(i.toFloat(), data[i].fat))
         }
         //表示するデータをDataSetに追加
         val dataSetWeight = LineDataSet(entriesWeight, "体重")
