@@ -8,12 +8,12 @@
         "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "io.github.redpanda1618.weightmanager.app-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "io.github.redpanda1618.weightmanager.app-main-33:/layout/activity_main.xml"
     },
     {
-        "merged": "io.github.redpanda1618.weightmanager.app-merged_res-31:/layout_activity_add_data.xml.flat",
-        "source": "io.github.redpanda1618.weightmanager.app-main-33:/layout/activity_add_data.xml"
+        "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -48,12 +48,12 @@
         "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\drawable_shape_rounded_corners_10dp.xml.flat",
-        "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\drawable\\shape_rounded_corners_10dp.xml"
-    },
-    {
         "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\layout_activity_add_data.xml.flat",
         "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\layout\\activity_add_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\drawable_shape_rounded_corners_10dp.xml.flat",
+        "source": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-main-33:\\drawable\\shape_rounded_corners_10dp.xml"
     },
     {
         "merged": "C:\\Users\\shump\\.gradle\\daemon\\7.3.3\\io.github.redpanda1618.weightmanager.app-merged_res-31:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",

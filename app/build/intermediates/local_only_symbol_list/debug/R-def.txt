@@ -37,6 +37,7 @@ layout activity_add_data
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round
+string add_data
 string app_name
 style Theme.WeightManager
 xml backup_rules
