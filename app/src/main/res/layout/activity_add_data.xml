@@ -8,15 +8,16 @@
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="106dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="152dp"
+        android:layout_width="208dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="101dp"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="153dp"
+        android:layout_marginEnd="102dp"
         android:autoSizeTextType="uniform"
         android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/add_data"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,8 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
         android:layout_marginTop="100dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/weight"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +45,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textColor="@color/rose_brown"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWeight" />
 
@@ -51,8 +55,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
         android:layout_marginTop="64dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/muscle_rate"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimalWeight" />
 
@@ -65,7 +72,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textColor="@color/rose_brown"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMuscle" />
 
@@ -75,8 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
         android:layout_marginTop="64dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/fat_rate"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimalMuscle" />
 
@@ -89,7 +99,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textColor="@color/rose_brown"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFat" />
 
@@ -99,8 +109,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="136dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/kilogram"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimalWeight"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,8 +123,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="101dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/percentage"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimalMuscle"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -121,8 +137,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="101dp"
-        android:text="TextView"
-        android:textColor="@color/rose_brown"
+        android:text="@string/percentage"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimalFat"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -130,10 +149,15 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:autoSizeTextType="uniform"
         android:background="@drawable/shape_rounded_corners_10dp"
-        android:text="button"
+        android:gravity="center"
+        android:onClick="saveData"
+        android:text="@string/save"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

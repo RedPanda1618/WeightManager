@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.EditText
 import androidx.annotation.RequiresApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.time.LocalDateTime
 
@@ -17,16 +20,28 @@ class AddDataActivity : AppCompatActivity() {
 
     // saveボタン押下時
     @RequiresApi(Build.VERSION_CODES.O)
-    fun saveData(){
+    fun saveData(view: View) = runBlocking{
         // データを取得する
-        val editTextWeight: EditText = findViewById(R.id.editTextNumberDecimalWeight) as EditText
-        val editTextMuscle: EditText = findViewById(R.id.editTextNumberDecimalMuscle) as EditText
-        val editTextFat: EditText = findViewById(R.id.editTextNumberDecimalFat) as EditText
+        val editTextWeight: EditText = findViewById<EditText>(R.id.editTextNumberDecimalWeight)
+        val editTextMuscle: EditText = findViewById<EditText>(R.id.editTextNumberDecimalMuscle)
+        val editTextFat: EditText = findViewById<EditText>(R.id.editTextNumberDecimalFat)
 
-        val sWeight: String = editTextWeight.toString() ?: "0"
-        val sMuscleRate: String = editTextMuscle.toString() ?: "0"
-        val sFatRate: String = editTextFat.toString() ?: "0"
+        var sWeight: String = editTextWeight.text.toString() ?: ""
+        var sMuscleRate: String = editTextMuscle.text.toString() ?: ""
+        var sFatRate: String = editTextFat.text.toString() ?: ""
 
+        if (sWeight.isEmpty()){
+            sWeight = "0"
+        }
+        if (sMuscleRate.isEmpty()){
+            sMuscleRate = "0"
+        }
+        if (sFatRate.isEmpty()){
+            sFatRate = "0"
+        }
+        Log.d("weight:", sWeight)
+        Log.d("muscle_rate:", sMuscleRate)
+        Log.d("fat_rate", sFatRate)
         val weight: Float = sWeight.toFloat()
         val muscleRate: Float = sMuscleRate.toFloat()
         val fatRate: Float = sFatRate.toFloat()
@@ -41,9 +56,10 @@ class AddDataActivity : AppCompatActivity() {
         val day: String = setDateTime.dayOfMonth.toString()
         val date: String = year + month + day
 
-        runBlocking {
-            insert(weight, muscle, fat, date)
-        }
+        launch {
+            val dao: UserDao = MainActivity.dao
+            dao.insert(User(0, date, weight, muscle, fat))
+        }.join()
         finish()
     }
     private suspend fun insert(weight: Float, muscle: Float, fat: Float, date: String){

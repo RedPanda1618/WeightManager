@@ -10,8 +10,16 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="add_data">addData</string>
-    <string name="app_name">WeightManager</string>
+    <string name="add_data">測定結果の入力</string>
+    <string name="app_name">体重管理</string>
+    <string name="fat">体脂肪</string>
+    <string name="fat_rate">体脂肪率</string>
+    <string name="kilogram">kg</string>
+    <string name="muscle">骨格筋</string>
+    <string name="muscle_rate">骨格筋率</string>
+    <string name="percentage">%</string>
+    <string name="save">保存</string>
+    <string name="weight">体重</string>
     <style name="Theme.WeightManager" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/dark_blue_gray</item>

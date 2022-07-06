@@ -13,15 +13,17 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
+
     companion object {
         lateinit var db : UserRoomDatabase
-        lateinit var dao : UserDao
+        lateinit var dao: UserDao
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,9 @@ class MainActivity : AppCompatActivity(){
         dao = db.userDao()
 
         val size = 10
-        showData(size)
+        runBlocking {
+            showData(size)
+        }
     }
     // 追加ボタン押下時
     fun addData(view: View) {
@@ -43,23 +47,24 @@ class MainActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
-    private fun showData(size: Int) = runBlocking {
+    private suspend fun showData(size: Int) {
 
-//        val weight: List<Float> = dao.getWeight(size) ?: listOf(0.toFloat())
-//        val muscle: List<Float> = dao.getMuscle(size) ?: listOf(0.toFloat())
-//        val fat: List<Float> = dao.getFat(size) ?: listOf(0.toFloat())
-//        val date: List<String> = dao.getDate(size) ?: listOf("")
-
-//            val data: List<User> = dao.get(size) ?: listOf(User(0, "", 0.toFloat(), 0.toFloat(), 0.toFloat()))
-
-        val data = ArrayList<User>()
+        val data: ArrayList<User>? = null
         dao.get(size)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                //データ取得完了時の処理
-                it.forEach { user -> data.add(user) }
-            }
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(
+                {
+                    //データ取得完了時の処理
+                    val data = ArrayList<User>()
+                    it.forEach { user -> data.add(user) }
+                }
+                , {
+                    //エラー処理
+                })
+        if(data == null){
+            return
+        }
         val entriesWeight = ArrayList<Entry>()
         val entriesMuscle = ArrayList<Entry>()
         val entriesFat = ArrayList<Entry>()
@@ -93,4 +98,7 @@ class MainActivity : AppCompatActivity(){
         chartMuscle.invalidate()
         chartFat.invalidate()
     }
+        fun getDao(): UserDao{
+            return dao
+        }
 }

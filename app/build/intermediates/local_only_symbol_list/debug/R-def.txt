@@ -25,6 +25,9 @@ id editTextNumberDecimalFat
 id editTextNumberDecimalMuscle
 id editTextNumberDecimalWeight
 id linearLayout
+id textView
+id textView2
+id textView4
 id textView5
 id textView6
 id textView7
@@ -39,6 +42,14 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string add_data
 string app_name
+string fat
+string fat_rate
+string kilogram
+string muscle
+string muscle_rate
+string percentage
+string save
+string weight
 style Theme.WeightManager
 xml backup_rules
 xml data_extraction_rules

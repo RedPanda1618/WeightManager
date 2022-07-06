@@ -4,21 +4,20 @@ import android.database.Cursor;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.RxRoom;
+import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
-import io.reactivex.Completable;
+import io.reactivex.Flowable;
 import java.lang.Class;
 import java.lang.Exception;
-import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
-import java.lang.Void;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
-import kotlin.Unit;
-import kotlin.coroutines.Continuation;
 
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class UserDao_Impl implements UserDao {
@@ -50,34 +49,64 @@ public final class UserDao_Impl implements UserDao {
   }
 
   @Override
-  public Object insert(final User user, final Continuation<? super Unit> continuation) {
-    return Completable.fromCallable(new Callable<Void>() {
-      @Override
-      public Void call() throws Exception {
-      }
-    });
+  public void insert(final User user) {
+    __db.assertNotSuspendingTransaction();
+    __db.beginTransaction();
+    try {
+      __insertionAdapterOfUser.insert(user);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
   }
 
   @Override
-  public Object get(final int size, final Continuation<? super List<User>> continuation) {
+  public Flowable<List<User>> get(final int size) {
     final String _sql = "SELECT * FROM user_table LIMIT ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     _statement.bindLong(_argIndex, size);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final Object _result;
-      if(_cursor.moveToFirst()) {
-        _result = new Object();
-      } else {
-        _result = null;
+    return RxRoom.createFlowable(__db, false, new String[]{"user_table"}, new Callable<List<User>>() {
+      @Override
+      public List<User> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfWeight = CursorUtil.getColumnIndexOrThrow(_cursor, "weight");
+          final int _cursorIndexOfMuscle = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle");
+          final int _cursorIndexOfFat = CursorUtil.getColumnIndexOrThrow(_cursor, "fat");
+          final List<User> _result = new ArrayList<User>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final User _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpDate;
+            if (_cursor.isNull(_cursorIndexOfDate)) {
+              _tmpDate = null;
+            } else {
+              _tmpDate = _cursor.getString(_cursorIndexOfDate);
+            }
+            final float _tmpWeight;
+            _tmpWeight = _cursor.getFloat(_cursorIndexOfWeight);
+            final float _tmpMuscle;
+            _tmpMuscle = _cursor.getFloat(_cursorIndexOfMuscle);
+            final float _tmpFat;
+            _tmpFat = _cursor.getFloat(_cursorIndexOfFat);
+            _item = new User(_tmpId,_tmpDate,_tmpWeight,_tmpMuscle,_tmpFat);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   public static List<Class<?>> getRequiredConverters() {
