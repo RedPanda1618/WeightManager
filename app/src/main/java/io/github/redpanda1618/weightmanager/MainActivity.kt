@@ -1,8 +1,10 @@
 package io.github.redpanda1618.weightmanager
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Size
 import android.view.View
 import android.widget.ArrayAdapter
@@ -20,7 +22,7 @@ import kotlinx.coroutines.*
 
 
 class MainActivity : AppCompatActivity() {
-
+    private var size: Int = 10
     companion object {
         lateinit var db : UserRoomDatabase
         lateinit var dao: UserDao
@@ -28,18 +30,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("TAG", "onCreate()")
         setContentView(R.layout.activity_main)
 
 
         //DB関連のインスタンス取得
         db = UserRoomDatabase.getDatabase(this)
         dao = db.userDao()
+    }
 
-        val size = 10
+    override fun onStart() {
+        super.onStart()
+        Log.d("FUN", "onStart()")
         runBlocking {
-            showData(size)
+            showData()
         }
     }
+
     // 追加ボタン押下時
     fun addData(view: View) {
         val intent: Intent = Intent(this@MainActivity,
@@ -47,28 +54,32 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private suspend fun showData(size: Int) {
-
-        val data: ArrayList<User>? = null
+    @SuppressLint("CheckResult")
+    private suspend fun showData() {
+        Log.d("DAO", dao.size().toString())
+        val data: ArrayList<User> = ArrayList<User>()
         dao.get(size)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
                 {
                     //データ取得完了時の処理
-                    val data = ArrayList<User>()
-                    it.forEach { user -> data.add(user) }
+                    it.forEach { user ->
+                        data?.add(user)
+                    }
                 }
                 , {
                     //エラー処理
                 })
         if(data == null){
+            Log.d("DAO", "No Data")
             return
         }
+        Log.d("DAO", data.size.toString())
         val entriesWeight = ArrayList<Entry>()
         val entriesMuscle = ArrayList<Entry>()
         val entriesFat = ArrayList<Entry>()
-        for(i in 0..data.size){
+        for(i in 1..data.size){
             entriesWeight.add(Entry(i.toFloat(), data[i].weight))
             entriesMuscle.add(Entry(i.toFloat(), data[i].muscle))
             entriesFat.add(Entry(i.toFloat(), data[i].fat))
@@ -98,7 +109,10 @@ class MainActivity : AppCompatActivity() {
         chartMuscle.invalidate()
         chartFat.invalidate()
     }
-        fun getDao(): UserDao{
-            return dao
-        }
+    fun getDao(): UserDao{
+        return dao
+    }
+    fun setDao(dao_: UserDao){
+        dao = dao_
+    }
 }

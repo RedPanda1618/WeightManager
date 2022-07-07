@@ -10,4 +10,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table LIMIT :size")
     fun get(size: Int): Flowable<List<User>>?
+
+    @Query("SELECT COUNT(*) FROM user_table")
+    fun size(): Int
 }

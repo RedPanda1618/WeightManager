@@ -20,7 +20,7 @@ class AddDataActivity : AppCompatActivity() {
 
     // saveボタン押下時
     @RequiresApi(Build.VERSION_CODES.O)
-    fun saveData(view: View) = runBlocking{
+    fun saveData(view: View) {
         // データを取得する
         val editTextWeight: EditText = findViewById<EditText>(R.id.editTextNumberDecimalWeight)
         val editTextMuscle: EditText = findViewById<EditText>(R.id.editTextNumberDecimalMuscle)
@@ -56,13 +56,13 @@ class AddDataActivity : AppCompatActivity() {
         val day: String = setDateTime.dayOfMonth.toString()
         val date: String = year + month + day
 
-        launch {
-            val dao: UserDao = MainActivity.dao
+        runBlocking {
+            Log.d("FUN", "dao.insert()")
+            val dao: UserDao = MainActivity().getDao()
             dao.insert(User(0, date, weight, muscle, fat))
-        }.join()
+            MainActivity().setDao(dao)
+            Log.d("FUN", "MainActivity().setDao(dao)")
+        }
         finish()
-    }
-    private suspend fun insert(weight: Float, muscle: Float, fat: Float, date: String){
-        MainActivity.dao.insert(User(0, date, weight, muscle, fat))
     }
 }
