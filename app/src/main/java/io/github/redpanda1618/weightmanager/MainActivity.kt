@@ -2,6 +2,7 @@ package io.github.redpanda1618.weightmanager
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -57,21 +59,20 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("CheckResult")
     private suspend fun showData() {
         Log.d("DAO", dao.size().toString())
-        val data: ArrayList<User> = ArrayList<User>()
+        var data: ArrayList<User> = ArrayList<User>()
         dao.get(size)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
                 {
                     //データ取得完了時の処理
-                    it.forEach { user ->
-                        data?.add(user)
+                    it.forEach { user -> data.add(user)
                     }
                 }
                 , {
                     //エラー処理
                 })
-        if(data == null){
+        if(data.size == 0){
             Log.d("DAO", "No Data")
             return
         }
@@ -88,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         val dataSetWeight = LineDataSet(entriesWeight, "体重")
         val dataSetMuscle = LineDataSet(entriesMuscle, "骨格筋")
         val dataSetFat = LineDataSet(entriesFat, "脂肪")
+        dataSetWeight.color = Color.WHITE
+        dataSetMuscle.color = Color.WHITE
+        dataSetFat.color = Color.WHITE
 
         //DataSetをDataに追加
         val dataWeight = LineData(dataSetWeight)
@@ -103,6 +107,17 @@ class MainActivity : AppCompatActivity() {
         chartWeight.data = dataWeight
         chartMuscle.data = dataMuscle
         chartFat.data = dataFat
+
+        // Chartにデザインを追加
+
+
+        chartWeight.legend.isEnabled = false
+        chartMuscle.legend.isEnabled = false
+        chartFat.legend.isEnabled = false
+
+        chartWeight.description.text = ""
+        chartMuscle.description.text = ""
+        chartFat.description.text = ""
 
         //チャートを更新
         chartWeight.invalidate()
