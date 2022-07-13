@@ -57,11 +57,9 @@ class AddDataActivity : AppCompatActivity() {
         val date: String = year + month + day
 
         runBlocking {
-            Log.d("FUN", "dao.insert()")
+//            Log.d("FUN", "dao.insert()")
             val dao: UserDao = MainActivity().getDao()
             dao.insert(User(0, date, weight, muscle, fat))
-            MainActivity().setDao(dao)
-            Log.d("FUN", "MainActivity().setDao(dao)")
         }
         finish()
     }

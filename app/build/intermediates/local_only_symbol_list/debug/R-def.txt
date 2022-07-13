@@ -17,6 +17,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable shape_rounded_corners_10dp
 id button
+id buttonClearData
 id button_add
 id chartFat
 id chartMuscle
@@ -42,6 +43,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string add_data
 string app_name
+string clrearData
 string fat
 string fat_rate
 string kilogram

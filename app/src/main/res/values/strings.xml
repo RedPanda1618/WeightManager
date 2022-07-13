@@ -9,4 +9,5 @@
     <string name="percentage">%</string>
     <string name="kilogram">kg</string>
     <string name="save">保存</string>
+    <string name="clrearData">全削除</string>
 </resources>

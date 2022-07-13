@@ -2619,6 +2619,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id button
+id buttonClearData
 id buttonPanel
 id button_add
 id cache_measures
@@ -3249,6 +3250,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string clrearData
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior

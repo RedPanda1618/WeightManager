@@ -6,21 +6,15 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.util.Size
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,9 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d("FUN", "onStart()")
-        runBlocking {
-            showData()
-        }
+        showData()
     }
 
     // 追加ボタン押下時
@@ -56,22 +48,19 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    @SuppressLint("CheckResult")
-    private suspend fun showData() {
-        Log.d("DAO", dao.size().toString())
-        var data: ArrayList<User> = ArrayList<User>()
-        dao.get(size)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe(
-                {
-                    //データ取得完了時の処理
-                    it.forEach { user -> data.add(user)
-                    }
-                }
-                , {
-                    //エラー処理
-                })
+    fun clearData(view: View) {
+        runBlocking {
+            dao.deleteAll()
+        }
+        super.onStart()
+    }
+
+    private fun showData() {
+        var data: ArrayList<User> = ArrayList()
+        runBlocking{
+            data = getData()
+        }
+
         if(data.size == 0){
             Log.d("DAO", "No Data")
             return
@@ -80,10 +69,11 @@ class MainActivity : AppCompatActivity() {
         val entriesWeight = ArrayList<Entry>()
         val entriesMuscle = ArrayList<Entry>()
         val entriesFat = ArrayList<Entry>()
-        for(i in 1..data.size){
-            entriesWeight.add(Entry(i.toFloat(), data[i].weight))
-            entriesMuscle.add(Entry(i.toFloat(), data[i].muscle))
-            entriesFat.add(Entry(i.toFloat(), data[i].fat))
+        val lastInd = data.size - 1
+        for(i in 0..lastInd){
+            entriesWeight.add(Entry(i.toFloat(), data.get(i).weight))
+            entriesMuscle.add(Entry(i.toFloat(), data.get(i).muscle))
+            entriesFat.add(Entry(i.toFloat(), data.get(i).fat))
         }
         //表示するデータをDataSetに追加
         val dataSetWeight = LineDataSet(entriesWeight, "体重")
@@ -124,6 +114,37 @@ class MainActivity : AppCompatActivity() {
         chartMuscle.invalidate()
         chartFat.invalidate()
     }
+
+    @SuppressLint("CheckResult")
+    private fun getData(): ArrayList<User>{
+        var data: ArrayList<User> = ArrayList()
+        Log.d("DAO", dao.size().toString())
+        val users = dao.get(size)
+        users.forEach { user ->
+                data.add(user)
+            }
+            Log.d("FUN", "forEach()")
+//        flowUsers
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(
+//                {
+//                    val data: ArrayList<User> = ArrayList()
+//                    //データ取得完了時の処理
+//                    it.forEach { user -> data.add(user)}
+//                    users = data
+//                }
+//                , {
+//                    //エラー処理
+//                    Log.d("FUN", "Failed to access data.")
+//                })
+
+//        }
+        Log.d("FUN", "add()")
+        return data
+
+    }
+
     fun getDao(): UserDao{
         return dao
     }
