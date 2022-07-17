@@ -26,9 +26,6 @@ id editTextNumberDecimalFat
 id editTextNumberDecimalMuscle
 id editTextNumberDecimalWeight
 id linearLayout
-id textView
-id textView2
-id textView4
 id textView5
 id textView6
 id textView7
@@ -43,7 +40,12 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string add_data
 string app_name
-string clrearData
+string clearData
+string dialog_cancel
+string dialog_del_message
+string dialog_input_error_message
+string dialog_ok
+string dialog_title
 string fat
 string fat_rate
 string kilogram

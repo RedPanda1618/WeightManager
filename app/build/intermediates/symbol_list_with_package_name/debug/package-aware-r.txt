@@ -2967,9 +2967,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
-id textView2
-id textView4
 id textView5
 id textView6
 id textView7
@@ -3249,8 +3246,13 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string clearData
 string clear_text_end_icon_content_description
-string clrearData
+string dialog_cancel
+string dialog_del_message
+string dialog_input_error_message
+string dialog_ok
+string dialog_title
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior

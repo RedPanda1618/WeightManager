@@ -8,125 +8,28 @@
 
     <!-- 折れ線グラフのビュー -->
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chartWeight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/chartMuscle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chartMuscle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/chartFat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chartWeight" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chartFat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chartMuscle" />
-
-    <ImageButton
-        android:id="@+id/button_add"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_circle"
-        android:contentDescription="@string/add_data"
-        android:onClick="addData"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="416dp"
-        android:layout_height="61dp"
-        android:textColor="?attr/colorOnPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MainActivity">
-
-        <TextView
-            android:id="@+id/title_bar"
-            android:layout_width="178dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:autoSizeTextType="uniform"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="117dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="?attr/colorOnPrimary"
-            android:text="@string/app_name"/>
-
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/weight"
+        android:id="@+id/textViewMuscle"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:autoSizeTextType="uniform"
-        android:textColor="?attr/colorOnPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="11dp"
+        android:autoSizeTextType="uniform"
         android:text="@string/muscle"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:autoSizeTextType="uniform"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chartWeight" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewFat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/fat"
-        android:layout_gravity="center"
-        android:gravity="center"
         android:autoSizeTextType="uniform"
+        android:text="@string/fat"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chartMuscle" />
@@ -138,8 +41,88 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="17dp"
         android:onClick="clearData"
-        android:text="@string/clrearData"
+        android:text="@string/clearData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewWeight"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:autoSizeTextType="uniform"
+        android:text="@string/weight"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chartWeight"
+        android:layout_width="340dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeight" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chartMuscle"
+        android:layout_width="340dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMuscle" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chartFat"
+        android:layout_width="340dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFat" />
+
+    <ImageButton
+        android:id="@+id/button_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_circle"
+        android:contentDescription="@string/add_data"
+        android:onClick="addData"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="416dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="4dp"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/title_bar"
+            android:layout_width="178dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="117dp"
+            android:layout_marginBottom="20dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="?attr/colorOnPrimary" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

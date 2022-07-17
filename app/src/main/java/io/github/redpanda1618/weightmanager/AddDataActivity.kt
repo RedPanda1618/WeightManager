@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.time.LocalDateTime
@@ -30,37 +31,53 @@ class AddDataActivity : AppCompatActivity() {
         var sMuscleRate: String = editTextMuscle.text.toString() ?: ""
         var sFatRate: String = editTextFat.text.toString() ?: ""
 
-        if (sWeight.isEmpty()){
-            sWeight = "0"
-        }
-        if (sMuscleRate.isEmpty()){
-            sMuscleRate = "0"
-        }
-        if (sFatRate.isEmpty()){
-            sFatRate = "0"
-        }
-        Log.d("weight:", sWeight)
-        Log.d("muscle_rate:", sMuscleRate)
-        Log.d("fat_rate", sFatRate)
-        val weight: Float = sWeight.toFloat()
-        val muscleRate: Float = sMuscleRate.toFloat()
-        val fatRate: Float = sFatRate.toFloat()
+//        if (sWeight.isEmpty()){
+//            sWeight = "0"
+//        }
+//        if (sMuscleRate.isEmpty()){
+//            sMuscleRate = "0"
+//        }
+//        if (sFatRate.isEmpty()){
+//            sFatRate = "0"
+//        }
+        if (sWeight.isEmpty() || sMuscleRate.isEmpty() || sFatRate.isEmpty()){
+            callMessage()
+        }else {
+            Log.d("weight:", sWeight)
+            Log.d("muscle_rate:", sMuscleRate)
+            Log.d("fat_rate", sFatRate)
+            val weight: Float = sWeight.toFloat()
+            val muscleRate: Float = sMuscleRate.toFloat()
+            val fatRate: Float = sFatRate.toFloat()
 
-        val muscle: Float = weight * muscleRate * 100
-        val fat: Float = weight * fatRate * 100
+            val muscle: Float = weight * muscleRate / 100
+            val fat: Float = weight * fatRate / 100
 
-        val localDateTime = LocalDateTime.now()
-        val setDateTime = localDateTime.minusHours(3)
-        val year: String = setDateTime.year.toString()
-        val month: String = setDateTime.month.toString()
-        val day: String = setDateTime.dayOfMonth.toString()
-        val date: String = year + month + day
+            val localDateTime = LocalDateTime.now()
+            val setDateTime = localDateTime.minusHours(3)
+            val year: String = setDateTime.year.toString()
+            val month: String = setDateTime.month.toString()
+            val day: String = setDateTime.dayOfMonth.toString()
+            val date: String = year + month + day
 
-        runBlocking {
+            runBlocking {
 //            Log.d("FUN", "dao.insert()")
-            val dao: UserDao = MainActivity().getDao()
-            dao.insert(User(0, date, weight, muscle, fat))
+                val dao: UserDao = MainActivity().getDao()
+                dao.insert(User(0, date, weight, muscle, fat))
+            }
+            finish()
         }
-        finish()
+    }
+
+     private fun callMessage(){
+         AlertDialog.Builder(this)
+             .setTitle(R.string.dialog_title)
+             .setMessage(R.string.dialog_input_error_message)
+             .setPositiveButton(R.string.dialog_ok) { dialog, which ->
+                 // OK の時は削除処理
+                 // ここにデータ削除処理を入れる
+                 this.onStart()
+             }
+             .show()
     }
 }

@@ -12,7 +12,12 @@
     <color name="white">#FFFFFFFF</color>
     <string name="add_data">測定結果の入力</string>
     <string name="app_name">体重管理</string>
-    <string name="clrearData">全削除</string>
+    <string name="clearData">全削除</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_del_message">本当に削除しますか？</string>
+    <string name="dialog_input_error_message">空欄の項目があります</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_title">確認</string>
     <string name="fat">体脂肪</string>
     <string name="fat_rate">体脂肪率</string>
     <string name="kilogram">kg</string>

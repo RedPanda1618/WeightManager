@@ -9,5 +9,10 @@
     <string name="percentage">%</string>
     <string name="kilogram">kg</string>
     <string name="save">保存</string>
-    <string name="clrearData">全削除</string>
+    <string name="clearData">全削除</string>
+    <string name="dialog_title">確認</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_del_message">本当に削除しますか？</string>
+    <string name="dialog_input_error_message">空欄の項目があります</string>
 </resources>

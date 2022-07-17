@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -49,10 +50,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clearData(view: View) {
-        runBlocking {
-            dao.deleteAll()
-        }
-        super.onStart()
+        AlertDialog.Builder(this)
+            .setTitle(R.string.dialog_title)
+            .setMessage(R.string.dialog_del_message)
+            .setPositiveButton(R.string.dialog_ok) { dialog, which ->
+                // OK の時は削除処理
+                // ここにデータ削除処理を入れる
+                runBlocking {
+                    dao.deleteAll()
+                }
+                onStart()
+            }
+            // Cancelの時は何もしない
+            .setNegativeButton(R.string.dialog_cancel) { dialog, which ->
+
+            }
+            .show()
     }
 
     private fun showData() {
@@ -71,9 +84,16 @@ class MainActivity : AppCompatActivity() {
         val entriesFat = ArrayList<Entry>()
         val lastInd = data.size - 1
         for(i in 0..lastInd){
-            entriesWeight.add(Entry(i.toFloat(), data.get(i).weight))
-            entriesMuscle.add(Entry(i.toFloat(), data.get(i).muscle))
-            entriesFat.add(Entry(i.toFloat(), data.get(i).fat))
+            val weight = data.get(i).weight
+            var muscle = data.get(i).muscle
+            var fat = data.get(i).fat
+            if (muscle > 10000) {
+                muscle = muscle / 10000
+                fat = fat / 10000
+            }
+            entriesWeight.add(Entry(i.toFloat(), weight))
+            entriesMuscle.add(Entry(i.toFloat(), muscle))
+            entriesFat.add(Entry(i.toFloat(), fat))
         }
         //表示するデータをDataSetに追加
         val dataSetWeight = LineDataSet(entriesWeight, "体重")
@@ -109,10 +129,27 @@ class MainActivity : AppCompatActivity() {
         chartMuscle.description.text = ""
         chartFat.description.text = ""
 
+        chartWeight.setTouchEnabled(false)
+        chartMuscle.setTouchEnabled(false)
+        chartFat.setTouchEnabled(false)
+
+        chartWeight.axisLeft.textColor = Color.WHITE
+        chartMuscle.axisLeft.textColor = Color.WHITE
+        chartFat.axisLeft.textColor = Color.WHITE
+
+        chartWeight.axisRight.isEnabled = false
+        chartMuscle.axisRight.isEnabled = false
+        chartFat.axisRight.isEnabled = false
+
+        chartWeight.xAxis.textColor = Color.WHITE
+        chartMuscle.xAxis.textColor = Color.WHITE
+        chartFat.xAxis.textColor = Color.WHITE
+
         //チャートを更新
         chartWeight.invalidate()
         chartMuscle.invalidate()
         chartFat.invalidate()
+
     }
 
     @SuppressLint("CheckResult")
