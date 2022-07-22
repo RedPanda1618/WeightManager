@@ -14,8 +14,9 @@
         android:theme="@style/Theme.WeightManager"
         tools:targetApi="31">
         <activity
-            android:name=".AddDataActivity">
-        </activity>
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity android:name=".AddDataActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
