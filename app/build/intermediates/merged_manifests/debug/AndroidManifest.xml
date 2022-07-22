@@ -21,8 +21,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.WeightManager" >
-        <activity android:name="io.github.redpanda1618.weightmanager.AddDataActivity" >
-        </activity>
+        <activity
+            android:name="io.github.redpanda1618.weightmanager.EditActivity"
+            android:exported="false" />
+        <activity android:name="io.github.redpanda1618.weightmanager.AddDataActivity" />
         <activity
             android:name="io.github.redpanda1618.weightmanager.MainActivity"
             android:exported="true" >

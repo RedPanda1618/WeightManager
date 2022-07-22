@@ -7,20 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 
 
 class MainActivity : AppCompatActivity() {
     private var size: Int = 10
-    companion object {
+    private companion object {
         lateinit var db : UserRoomDatabase
         lateinit var dao: UserDao
     }
@@ -29,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d("TAG", "onCreate()")
         setContentView(R.layout.activity_main)
-
 
         //DB関連のインスタンス取得
         db = UserRoomDatabase.getDatabase(this)
@@ -47,26 +42,18 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = Intent(this@MainActivity,
             AddDataActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(
+            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 
-    fun clearData(view: View) {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.dialog_title)
-            .setMessage(R.string.dialog_del_message)
-            .setPositiveButton(R.string.dialog_ok) { dialog, which ->
-                // OK の時は削除処理
-                // ここにデータ削除処理を入れる
-                runBlocking {
-                    dao.deleteAll()
-                }
-                onStart()
-            }
-            // Cancelの時は何もしない
-            .setNegativeButton(R.string.dialog_cancel) { dialog, which ->
-
-            }
-            .show()
+    fun editData(view: View) {
+        val intent: Intent = Intent(this@MainActivity,
+            EditActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(
+            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
+
 
     private fun showData() {
         var data: ArrayList<User> = ArrayList()
@@ -161,22 +148,6 @@ class MainActivity : AppCompatActivity() {
                 data.add(user)
             }
             Log.d("FUN", "forEach()")
-//        flowUsers
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe(
-//                {
-//                    val data: ArrayList<User> = ArrayList()
-//                    //データ取得完了時の処理
-//                    it.forEach { user -> data.add(user)}
-//                    users = data
-//                }
-//                , {
-//                    //エラー処理
-//                    Log.d("FUN", "Failed to access data.")
-//                })
-
-//        }
         Log.d("FUN", "add()")
         return data
 
@@ -184,8 +155,5 @@ class MainActivity : AppCompatActivity() {
 
     fun getDao(): UserDao{
         return dao
-    }
-    fun setDao(dao_: UserDao){
-        dao = dao_
     }
 }

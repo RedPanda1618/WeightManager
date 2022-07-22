@@ -27,19 +27,10 @@ class AddDataActivity : AppCompatActivity() {
         val editTextMuscle: EditText = findViewById<EditText>(R.id.editTextNumberDecimalMuscle)
         val editTextFat: EditText = findViewById<EditText>(R.id.editTextNumberDecimalFat)
 
-        var sWeight: String = editTextWeight.text.toString() ?: ""
-        var sMuscleRate: String = editTextMuscle.text.toString() ?: ""
-        var sFatRate: String = editTextFat.text.toString() ?: ""
+        val sWeight: String = editTextWeight.text.toString() ?: ""
+        val sMuscleRate: String = editTextMuscle.text.toString() ?: ""
+        val sFatRate: String = editTextFat.text.toString() ?: ""
 
-//        if (sWeight.isEmpty()){
-//            sWeight = "0"
-//        }
-//        if (sMuscleRate.isEmpty()){
-//            sMuscleRate = "0"
-//        }
-//        if (sFatRate.isEmpty()){
-//            sFatRate = "0"
-//        }
         if (sWeight.isEmpty() || sMuscleRate.isEmpty() || sFatRate.isEmpty()){
             callMessage()
         }else {

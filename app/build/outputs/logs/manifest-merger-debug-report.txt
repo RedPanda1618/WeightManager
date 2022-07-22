@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [androidx.room:room-ktx:2.4.2] C:\Users\shump\.gradle\caches\transforms-3\f9910e8872a63d4c7dc3a09659ddd878\transformed\room-ktx-2.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.8.0] C:\Users\shump\.gradle\caches\transforms-3\9b6e7b867c439fcad6c05c2e8ffb5597\transformed\core-ktx-1.8.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\shump\.gradle\caches\transforms-3\e94337de3ceb42b0135be1d8a4a9b7db\transformed\material-1.6.1\AndroidManifest.xml:17:1-26:12
@@ -51,27 +51,27 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\shump\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\2fdc444f58f0985dd90434a2dfd41b22\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\shump\.gradle\caches\transforms-3\8b6dcb5af362fdf92b4433d1caf07205\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\shump\.gradle\caches\transforms-3\2e46ed5707fdca95e02919dff0607977\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:4:5-51
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-30:12
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:6:5-28:19
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:6:5-29:19
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\shump\.gradle\caches\transforms-3\e94337de3ceb42b0135be1d8a4a9b7db\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\shump\.gradle\caches\transforms-3\e94337de3ceb42b0135be1d8a4a9b7db\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\shump\.gradle\caches\transforms-3\b8d955ff5639500073f611d7cca66d0d\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -108,26 +108,32 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\shump\.gradle\cach
 		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:14:9-51
 	android:dataExtractionRules
 		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:8:9-65
-activity#io.github.redpanda1618.weightmanager.AddDataActivity
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:16:9-18:20
-	android:name
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:17:13-44
-activity#io.github.redpanda1618.weightmanager.MainActivity
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:19:9-27:20
+activity#io.github.redpanda1618.weightmanager.EditActivity
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:16:9-18:40
 	android:exported
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:21:13-36
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:20:13-41
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:17:13-41
+activity#io.github.redpanda1618.weightmanager.AddDataActivity
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:19:9-62
+	android:name
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:19:19-50
+activity#io.github.redpanda1618.weightmanager.MainActivity
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:20:9-28:20
+	android:exported
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:22:13-36
+	android:name
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:21:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\shump\AndroidStudioProjects\WeightManager\app\src\main\AndroidManifest.xml

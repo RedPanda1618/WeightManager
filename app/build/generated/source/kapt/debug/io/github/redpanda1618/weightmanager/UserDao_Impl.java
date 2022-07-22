@@ -141,6 +141,45 @@ public final class UserDao_Impl implements UserDao {
     }
   }
 
+  @Override
+  public List<User> getAll() {
+    final String _sql = "SELECT * FROM user_table";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+      final int _cursorIndexOfWeight = CursorUtil.getColumnIndexOrThrow(_cursor, "weight");
+      final int _cursorIndexOfMuscle = CursorUtil.getColumnIndexOrThrow(_cursor, "muscle");
+      final int _cursorIndexOfFat = CursorUtil.getColumnIndexOrThrow(_cursor, "fat");
+      final List<User> _result = new ArrayList<User>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final User _item;
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        final String _tmpDate;
+        if (_cursor.isNull(_cursorIndexOfDate)) {
+          _tmpDate = null;
+        } else {
+          _tmpDate = _cursor.getString(_cursorIndexOfDate);
+        }
+        final float _tmpWeight;
+        _tmpWeight = _cursor.getFloat(_cursorIndexOfWeight);
+        final float _tmpMuscle;
+        _tmpMuscle = _cursor.getFloat(_cursorIndexOfMuscle);
+        final float _tmpFat;
+        _tmpFat = _cursor.getFloat(_cursorIndexOfFat);
+        _item = new User(_tmpId,_tmpDate,_tmpWeight,_tmpMuscle,_tmpFat);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }

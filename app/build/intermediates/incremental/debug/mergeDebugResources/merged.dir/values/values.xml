@@ -1597,7 +1597,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mail" id="application_name">%s</ns2:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="add_data">測定結果の入力</string>
+    <string name="add_data">入力</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="app_name">体重管理</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
@@ -1609,11 +1609,13 @@
     <string name="chip_text">Chip text</string>
     <string name="clearData">全削除</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="date">日付</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_del_message">本当に削除しますか？</string>
     <string name="dialog_input_error_message">空欄の項目があります</string>
     <string name="dialog_ok">OK</string>
     <string name="dialog_title">確認</string>
+    <string name="editData">編集</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>

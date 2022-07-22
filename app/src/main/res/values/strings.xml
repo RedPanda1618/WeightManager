@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">体重管理</string>
-    <string name="add_data">測定結果の入力</string>
+    <string name="add_data">入力</string>
+    <string name="date">日付</string>
     <string name="weight">体重</string>
     <string name="muscle">骨格筋</string>
     <string name="fat">体脂肪</string>
@@ -15,4 +16,5 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_del_message">本当に削除しますか？</string>
     <string name="dialog_input_error_message">空欄の項目があります</string>
+    <string name="editData">編集</string>
 </resources>

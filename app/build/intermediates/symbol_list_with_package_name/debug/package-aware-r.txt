@@ -2620,6 +2620,7 @@ id bounceEnd
 id bounceStart
 id button
 id buttonClearData
+id buttonEditData
 id buttonPanel
 id button_add
 id cache_measures
@@ -2943,6 +2944,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tableLayoutData
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2973,6 +2975,7 @@ id textView7
 id textViewFat
 id textViewMuscle
 id textViewTitle
+id textViewTitleEdit
 id textViewWeight
 id text_input_end_icon
 id text_input_error_icon
@@ -3115,6 +3118,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_data
+layout activity_edit
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3248,11 +3252,13 @@ string character_counter_pattern
 string chip_text
 string clearData
 string clear_text_end_icon_content_description
+string date
 string dialog_cancel
 string dialog_del_message
 string dialog_input_error_message
 string dialog_ok
 string dialog_title
+string editData
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
